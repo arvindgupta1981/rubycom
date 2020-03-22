@@ -7,27 +7,5 @@
 	http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd"
     version="1.8">
 
-    <schedule>
-       
-        
-        <job>
-            <name>WaterOrderJob</name>
-            <group>WaterOrderJobs</group>
-            <description>WaterOrderJob</description>
-            <job-class>com.rubicon.water.order.jobs.WaterOrderJob</job-class>
-        </job>
 
-        <trigger>
-            <cron>
-                <name>WaterOrderJobTrigger</name>
-                <job-name>WaterOrderJob</job-name>
-                <job-group>WaterOrderJobs</job-group>
-                <!-- The below time is a hack -->                
-                <!-- cron-expression>0/50 * * * * ?</cron-expression-->
-                <cron-expression>59 59 23 6 12 ? 2090</cron-expression>
-            </cron>
-        </trigger>
-        
-       
-    </schedule>
 </job-scheduling-data>
