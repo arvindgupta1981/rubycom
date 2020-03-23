@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rubicon.water.order.dao.WaterOrderState;
+import com.rubicon.water.order.dto.Orders;
 import com.rubicon.water.order.dto.WaterOrder;
 import com.rubicon.water.order.dto.WaterStatus;
 import com.rubicon.water.order.jobs.WaterOrderJob;
@@ -91,11 +92,13 @@ public class WaterService {
 
 
     @PostMapping(path = "/find", produces = "application/xml")
-    public List<WaterOrder> getExistingOrders(WaterOrder waterOrder) {    	
+    public Orders getExistingOrders(@RequestBody WaterOrder waterOrder) {    	
     	logger.info("request to fetch an order recieved");    	
     	List<WaterOrder> waterOrderList = WaterOrderState.fetchWaterOrder(waterOrder);    	
     	logger.info("order successfully fetched");
-    	return waterOrderList;
+    	Orders orders = new Orders();
+    	orders.setWaterOrder(waterOrder);
+    	return orders;
     }
     
 
