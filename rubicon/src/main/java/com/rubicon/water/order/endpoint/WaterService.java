@@ -61,6 +61,7 @@ public class WaterService {
 	                .endAt(waterOrder.getOrderFinishTime())
 	                .build();
 			schedulerFactoryBean.getScheduler().scheduleJob(detail, trigger);
+			JobKey jobKey = new JobKey(jobKeyName, "rubicon");
 			logger.debug("order successfully Created with staus : " + waterOrder.getStaus().toString());
 
 		} else {
@@ -97,7 +98,7 @@ public class WaterService {
     	List<WaterOrder> waterOrderList = WaterOrderState.fetchWaterOrder(waterOrder);    	
     	logger.info("order successfully fetched");
     	Orders orders = new Orders();
-    	orders.setWaterOrder(waterOrder);
+    	orders.setWaterOrders(waterOrderList);
     	return orders;
     }
     

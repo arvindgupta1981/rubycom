@@ -1,22 +1,21 @@
 package com.rubicon.water.order.dto;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "waterorders")
 public class Orders {
  
-	private WaterOrder waterOrder = null;
+	private List<WaterOrder> waterOrders = null;
 
 	@XmlElement
-	public WaterOrder getWaterOrder() {
-		return waterOrder;
+	public List<WaterOrder> getWaterOrders() {
+		return waterOrders;
 	}
 
-	public void setWaterOrder(WaterOrder waterOrder) {
-		this.waterOrder = waterOrder;
+	public void setWaterOrders(List<WaterOrder> waterOrders) {
+		this.waterOrders = waterOrders;
 	}
-	
-	
-	
 }
